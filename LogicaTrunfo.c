@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <string.h> 
+#include <stdlib.h>
 
 
 // Desafio Super Trunfo - Países
 // Tema 1 - Cadastro das Cartas
 // Desenvolvendo lógica
+// Função para mostrar o menu principal
 
-int main() {
-    
+void iniciarJogoAutomatico() {
     // --- Variáveis para a CARTA 1 ---
     char estado[20];    
     char codigo[4];   
@@ -96,6 +97,44 @@ int main() {
 } else {
     printf("Resultado: Houve um empate!\n");
 }
+}
+
+void mostrarMenuPrincipal() {
+    printf("\n--- Menu Principal ---\n");
+    printf("1. Iniciar Jogo\n");
+    printf("2. Ver Regras\n");
+    printf("3. Sair\n");
+    printf("Escolha uma opção: ");
+}
+
+int main(){
+    int opcao;
+
+     do {
+        mostrarMenuPrincipal();
+        scanf("%d", &opcao);
+
+        switch(opcao) {
+            case 1:
+                printf("Iniciando novo jogo...\n");
+                iniciarJogoAutomatico();
+                break;
+            case 2:
+                printf("\n--- REGRAS ---\n");
+                printf("1. Duas cartas são sorteadas.\n");
+                printf("2. O jogador escolhe um atributo da sua carta para comparar.\n");
+                printf("3. Quem tiver o maior valor no atributo vence a rodada.\n");
+                printf("4. EXCEÇÃO: Para 'Densidade Populacional', o MENOR valor vence.\n");
+                break;
+            case 3:
+                printf("Obrigado por jogar! Saindo...\n");
+                break;
+            default:
+                printf("Opção inválida! Tente novamente.\n");
+                break;
+        }
+
+    } while (opcao != 3);
 
    return 0;
 }
